@@ -35,7 +35,7 @@
       <hr />
 
       <h3><strong>Question 1</strong></h3>
-      <h4>----------</h4>
+      <h4>Mountain Dew is the Greatest soda ever made. </h4>
       <select class="chosen-select" id="q1">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -160,7 +160,7 @@
       <footer class="footer">
         <div class="container">
           <p>
-            <a href="/api/friends">API Friends List</a> |
+            <a href="/api/survey">API Friends List</a> |
             <a href="https://github.com/smentzer/FriendFinder">GitHub Repo</a>
           </p>
         </div>
@@ -189,7 +189,14 @@
       			$('#question10').val()
       		]}
           console.log(userInput);
+
+          $.post("api/survey", userInput)
+            .then(function(data){
+              console.log("survey.html")
+          })
         });
+
+
 
 
     </script>
