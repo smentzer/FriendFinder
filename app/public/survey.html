@@ -17,8 +17,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>  
-    
+  <body>
     <title>Friend Finder</title>
 
     <div class="container">
@@ -147,11 +146,10 @@
         class="btn btn-primary btn-lg btn-block"
         id="submitButton"
         data-toggle="modal"
-        data-target="#exampleModalCenter"
+        data-target="#thisModal"
       >
         <i class="fa fa-check-circle"></i> Submit
       </button>
-
 
       <hr />
       <footer class="footer">
@@ -163,21 +161,13 @@
         </div>
       </footer>
     </div>
-<!-- bootstrap modal -->
-    <div
-      class="modal fade"
-      id="thisModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
+
+    <!-- bootstrap modal -->
+    <div class="modal" id="thisModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="thisModal">
-              Your Match
-            </h5>
+            <h5 class="modal-title">Modal title</h5>
             <button
               type="button"
               class="close"
@@ -187,11 +177,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body"></div>
+          <div class="modal-body">
+            <p></p>
+          </div>
           <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
             <button
               type="button"
-              class="close btn btn-secondary"
+              class="btn btn-secondary"
               data-dismiss="modal"
             >
               Close
@@ -201,10 +194,19 @@
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery.js"></script>
     <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
       crossorigin="anonymous"
     ></script>
 
@@ -278,12 +280,11 @@
               compareFriends();
               findBestMatch();
 
-              $("#thisModal").append(bestMatch.name + "<br>");
-              $("#thisModal").append("<img src='" + bestMatch.photo + "'>");
+              $(".modal-body").append(bestMatch.name + "<br>");
+              $(".modal-body").append("<img src='" + bestMatch.photo + "'>");
 
-
-               console.log("name: " + bestMatch.name) 
-               console.log("image url: " + bestMatch.photo)
+              console.log("name: " + bestMatch.name);
+              console.log("image url: " + bestMatch.photo);
             });
           } else {
             alert("err");
@@ -291,9 +292,10 @@
         });
       });
 
-$('#exampleModalCenter').on('shown.bs.modal', function () {
-  $('#submitButton').trigger('focus')
-})
+      $("#thisModal").on("shown.bs.modal", function() {
+        $("#submitButton").trigger("focus");
+        
+      });
     </script>
   </body>
 </html>
