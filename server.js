@@ -1,7 +1,9 @@
 
 //dependencies
 var express = require('express');
+//do i need this? or do i use express 
 var bodyParser = require('body-parser');
+
 var path = require('path');
 
 var app = express();

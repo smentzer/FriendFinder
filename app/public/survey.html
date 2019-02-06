@@ -16,7 +16,9 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery.js"></script>
+  </head>
+  <body>  
+    
     <title>Friend Finder</title>
 
     <div class="container">
@@ -37,7 +39,6 @@
       <h3 class="mt-md-5"><strong>Question 1</strong></h3>
       <h4>People can rarely upset you</h4>
       <select class="chosen-select" id="q1">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -48,7 +49,6 @@
       <h3 class="mt-md-5"><strong>Question 2</strong></h3>
       <h4>Family is really important to you</h4>
       <select class="chosen-select" id="q2">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -59,7 +59,6 @@
       <h3 class="mt-md-5"><strong>Question 3</strong></h3>
       <h4>You are interested in politics</h4>
       <select class="chosen-select" id="q3">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -70,7 +69,6 @@
       <h3 class="mt-md-5"><strong>Question 4</strong></h3>
       <h4>You work well under pressure</h4>
       <select class="chosen-select" id="q4">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -81,7 +79,6 @@
       <h3 class="mt-md-5"><strong>Question 5</strong></h3>
       <h4>Poems always rhyme</h4>
       <select class="chosen-select" id="q5">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -92,7 +89,6 @@
       <h3 class="mt-md-5"><strong>Question 6</strong></h3>
       <h4>You are open to new experiences</h4>
       <select class="chosen-select" id="q6">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -103,7 +99,6 @@
       <h3 class="mt-md-5"><strong>Question 7</strong></h3>
       <h4>Pepsi is acceptable</h4>
       <select class="chosen-select" id="q7">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -114,7 +109,6 @@
       <h3 class="mt-md-5"><strong>Question 8</strong></h3>
       <h4>A home without a cat is just a house</h4>
       <select class="chosen-select" id="q8">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -123,9 +117,10 @@
       </select>
 
       <h3 class="mt-md-5"><strong>Question 9</strong></h3>
-      <h4>It is often difficult for you to relate to other people’s feelings</h4>
+      <h4>
+        It is often difficult for you to relate to other people’s feelings
+      </h4>
       <select class="chosen-select" id="q9">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -136,7 +131,6 @@
       <h3 class="mt-md-5"><strong>Question 10</strong></h3>
       <h4>You rarely get carried away by fantasies and ideas</h4>
       <select class="chosen-select" id="q10">
-        <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -152,54 +146,154 @@
         type="submit"
         class="btn btn-primary btn-lg btn-block"
         id="submitButton"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
       >
         <i class="fa fa-check-circle"></i> Submit
       </button>
+
 
       <hr />
       <footer class="footer">
         <div class="container">
           <p>
-            <a href="/api/survey">API Friends List</a> |
+            <a href="/api/friends">API Friends List</a> |
             <a href="https://github.com/smentzer/FriendFinder">GitHub Repo</a>
           </p>
         </div>
       </footer>
     </div>
+<!-- bootstrap modal -->
+    <div
+      class="modal fade"
+      id="thisModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="thisModal">
+              Your Match
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="close btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
 
     <script type="text/javascript">
+      // Activate submit button
+      $("#submitButton").on("click", function(event) {
+        event.preventDefault();
+        // Gather user inputs
+        var userInput = {
+          name: $("#name")
+            .val()
+            .trim(),
+          photo: $("#photo")
+            .val()
+            .trim(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+        };
+        console.log(userInput);
 
-        // Activate submit button
-      $('#submitButton').on('click', function(event) {
-          event.preventDefault();
-      	// Gather user inputs
-      var userInput = {
-      		name: $('#name').val().trim(),
-      		photo: $('#photo').val().trim(),
-      		scores:[
-      			$('#question1').val(),
-      			$('#question2').val(),
-      			$('#question3').val(),
-      			$('#question4').val(),
-      			$('#question5').val(),
-      			$('#question6').val(),
-      			$('#question7').val(),
-      			$('#question8').val(),
-      			$('#question9').val(),
-      			$('#question10').val()
-      		]}
-          console.log(userInput);
+        $.post("api/friends", userInput, function(data) {
+          var user = userInput;
+          if (data) {
+            $.ajax({
+              url: "/api/friends",
+              method: "GET"
+            }).then(function(friendsArray) {
+              var bestMatch = {
+                name: "",
+                photo: "",
+                scores: [],
+                difference: 41
+              };
+              function compareFriends() {
+                var differenceArray = [];
+                var differenceTotal = 0;
 
-          $.post("api/survey", userInput)
-            .then(function(data){
-              console.log("survey.html")
-          })
+                for (var i = 0; i < friendsArray.length - 1; i++) {
+                  //reset
+                  differenceArray = [];
+                  for (var noti = 0; noti < friendsArray.length; noti++) {
+                    differenceTotal += Math.abs(
+                      friendsArray[i].scores[noti] - user.scores[noti]
+                    );
+                    friendsArray[i].difference = differenceTotal;
+                  }
+                  differenceTotal = 0;
+                }
+              }
+
+              function findBestMatch() {
+                for (var x = 0; x < friendsArray.length - 1; x++) {
+                  console.log(friendsArray[x]);
+                  if (friendsArray[x].difference < bestMatch.difference) {
+                    bestMatch = friendsArray[x];
+                  }
+                  differenceArray = [];
+                }
+              }
+
+              compareFriends();
+              findBestMatch();
+
+              $("#thisModal").append(bestMatch.name + "<br>");
+              $("#thisModal").append("<img src='" + bestMatch.photo + "'>");
+
+
+               console.log("name: " + bestMatch.name) 
+               console.log("image url: " + bestMatch.photo)
+            });
+          } else {
+            alert("err");
+          }
         });
+      });
 
-
-
-
+$('#exampleModalCenter').on('shown.bs.modal', function () {
+  $('#submitButton').trigger('focus')
+})
     </script>
-  </head>
-  <body></body>
+  </body>
 </html>
